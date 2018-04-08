@@ -55,7 +55,7 @@ public class RunIfRunner extends Runner {
 
 		// If the entire test class must be ignored, we instantiate an instance of IgnoredClassRunner
 		// since this runner will not instantiate the test class, thus allowing the class to use
-		// illegal API such as Java8 method on JDK7 (since it will never be evaluated).
+		// illegal API such as Java8Condition method on JDK7 (since it will never be evaluated).
 		this.delegate = ignoreClass ? new IgnoredClassRunner(klass) : new RunIfBlockJunit4ClassRunner(klass);
 	}
 
