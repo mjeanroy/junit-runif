@@ -26,15 +26,10 @@ package com.github.mjeanroy.junit4.runif.it;
 
 import com.github.mjeanroy.junit4.runif.RunIf;
 import com.github.mjeanroy.junit4.runif.RunIfRunner;
-import com.github.mjeanroy.junit4.runif.conditions.AtLeastJava8Condition;
 import com.github.mjeanroy.junit4.runif.fixtures.AlwaysFalseCondition;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.stream.Stream;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(RunIfRunner.class)
