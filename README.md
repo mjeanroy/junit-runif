@@ -100,6 +100,6 @@ Out of the box, following conditions are available:
 
 MIT License.
 
-### Contributing
+### Contributing
 
 If you found a bug or you thing something is missing, feel free to contribute and submit an issue or a pull request.
