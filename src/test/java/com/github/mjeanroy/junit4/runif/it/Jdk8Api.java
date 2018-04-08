@@ -24,20 +24,23 @@
 
 package com.github.mjeanroy.junit4.runif.it;
 
-import com.github.mjeanroy.junit4.runif.RunIf;
-import com.github.mjeanroy.junit4.runif.RunIfRunner;
-import com.github.mjeanroy.junit4.runif.conditions.AtLeastJava8Condition;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import java.util.stream.Stream;
 
-@RunWith(RunIfRunner.class)
-@RunIf(AtLeastJava8Condition.class)
-public class Java8TestSuite {
+import static org.junit.Assert.assertEquals;
 
-	@Test
-	public void it_should_fail_with_java_7() {
-		// Since Stream class is not available with Java 7, this unit test will
-		// fail if RunIf statement does not work correctly.
-		Jdk8Api.useJdk8Api();
+/**
+ * A simple class that use JDK8 API.
+ */
+public final class Jdk8Api {
+
+	// Ensure non instantiation.
+	private Jdk8Api() {
+	}
+
+	/**
+	 * Just a method that use a JDK8 Api.
+	 */
+	public static void useJdk8Api() {
+		assertEquals(Stream.class, Stream.class);
 	}
 }
