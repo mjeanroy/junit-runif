@@ -56,7 +56,9 @@ final class JavaUtils {
 	 */
 	private static Version parseVersion(String version) {
 		String[] parts = version.split("\\.");
-		int major = Integer.parseInt(parts[1]);
+		int nbParts = parts.length;
+		int majorIndex = nbParts > 1 ? 1 : 0;
+		int major = Integer.parseInt(parts[majorIndex]);
 		return new Version(major);
 	}
 
