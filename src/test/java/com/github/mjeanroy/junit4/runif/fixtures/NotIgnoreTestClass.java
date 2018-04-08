@@ -26,9 +26,17 @@ package com.github.mjeanroy.junit4.runif.fixtures;
 
 import com.github.mjeanroy.junit4.runif.RunIf;
 import com.github.mjeanroy.junit4.runif.RunIfRunner;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static org.junit.Assert.assertTrue;
 
 @RunWith(RunIfRunner.class)
 @RunIf(AlwaysTrueCondition.class)
 public class NotIgnoreTestClass {
+
+	@Test
+	public void test() {
+		assertTrue(true);
+	}
 }
