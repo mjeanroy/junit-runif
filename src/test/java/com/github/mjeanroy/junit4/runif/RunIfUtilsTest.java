@@ -24,14 +24,15 @@
 
 package com.github.mjeanroy.junit4.runif;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.lang.reflect.Method;
+
+import com.github.mjeanroy.junit4.runif.fixtures.IgnoreChildClass;
 import com.github.mjeanroy.junit4.runif.fixtures.IgnoreTestClass;
 import com.github.mjeanroy.junit4.runif.fixtures.IgnoreTestMethodClass;
 import com.github.mjeanroy.junit4.runif.fixtures.NotIgnoreTestClass;
 import org.junit.Test;
-
-import java.lang.reflect.Method;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class RunIfUtilsTest {
 	@Test
@@ -50,6 +51,12 @@ public class RunIfUtilsTest {
 	public void it_should_return_false_if_class_is_not_ignored() {
 		boolean isIgnored = RunIfUtils.isIgnored(NotIgnoreTestClass.class);
 		assertThat(isIgnored).isFalse();
+	}
+
+	@Test
+	public void it_should_return_true_if_class_is_ignored_because_super_class_is_annotated() {
+		boolean isIgnored = RunIfUtils.isIgnored(IgnoreChildClass.class);
+		assertThat(isIgnored).isTrue();
 	}
 
 	@Test

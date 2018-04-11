@@ -41,7 +41,7 @@ class RunIfUtils {
 	 * @return {@code true} if class must be ignored, {@code false} otherwise.
 	 */
 	static boolean isIgnored(Class<?> klass) {
-		return isIgnored(klass.getAnnotation(RunIf.class));
+		return isIgnored(findRunIfAnnotation(klass));
 	}
 
 	/**
@@ -68,5 +68,24 @@ class RunIfUtils {
 			// Fail with a non-checked exception.
 			throw new AssertionError(ex);
 		}
+	}
+
+	/**
+	 * Find the {@link RunIf} annotation on the class or on a superclass in the hierarchy.
+	 *
+	 * @param klass The class to analyze.
+	 * @return The {@link RunIf} annotation if found, {@code null} otherwise.
+	 */
+	private static RunIf findRunIfAnnotation(Class<?> klass) {
+		while (klass != null && klass != Object.class) {
+			RunIf annotation = klass.getAnnotation(RunIf.class);
+			if (annotation != null) {
+				return annotation;
+			}
+
+			klass = klass.getSuperclass();
+		}
+
+		return null;
 	}
 }
