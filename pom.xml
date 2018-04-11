@@ -5,7 +5,7 @@
   <name>junit-runif</name>
   <groupId>com.github.mjeanroy</groupId>
   <artifactId>junit-runif</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.2.0</version>
   <packaging>jar</packaging>
   <url>https://github.com/mjeanroy/junit-servers</url>
   <description>Run unit test conditionally.</description>
@@ -23,7 +23,7 @@
     <developerConnection>scm:git:git@github.com:mjeanroy/junit-runif.git
     </developerConnection>
     <url>https://github.com/mjeanroy/junit-runif</url>
-    <tag>HEAD</tag>
+    <tag>junit-runif-0.2.0</tag>
   </scm>
 
   <developers>
