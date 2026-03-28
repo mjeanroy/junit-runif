@@ -24,30 +24,15 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-import org.junit.Test;
+class JavaTestingUtils {
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class JavaUtilsTest {
-
-	@Test
-	public void it_should_read_java_version() {
-		testJavaVersion("1.7", 7);
-		testJavaVersion("1.8", 8);
-		testJavaVersion("9", 9);
-		testJavaVersion("11", 11);
-		testJavaVersion("17", 17);
-	}
-
-	private static void testJavaVersion(final String javaSpecificationVersion, final int expectedMajor) {
-		JavaTestingUtils.withJavaSpecificationVersion(javaSpecificationVersion, new Runnable() {
-				@Override
-				public void run() {
-					assertThat(JavaUtils.getJavaSpecificationVersion().getMajor())
-						.overridingErrorMessage("Expected java specification version major %s for %s", expectedMajor, javaSpecificationVersion)
-						.isEqualTo(expectedMajor);
-				}
-			}
-		);
+	static void withJavaSpecificationVersion(String javaSpecificationVersion, Runnable runnable) {
+		String prop = System.getProperty("java.specification.version");
+		System.setProperty("java.specification.version", javaSpecificationVersion);
+		try {
+			runnable.run();
+		} finally {
+			System.setProperty("java.specification.version", prop);
+		}
 	}
 }

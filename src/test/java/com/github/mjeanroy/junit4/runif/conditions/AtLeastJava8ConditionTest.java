@@ -24,26 +24,64 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-import org.junit.Assume;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AtLeastJava8ConditionTest extends AbstractJavaConditionTest {
+public class AtLeastJava8ConditionTest {
 
 	@Test
-	public void it_should_return_true_with_java_greater_than_or_equal_8() {
-		Assume.assumeFalse(javaSpecificationVersion.equals("1.7"));
-
-		AtLeastJava8Condition condition = new AtLeastJava8Condition();
-		assertThat(condition.apply()).isTrue();
+	public void it_should_return_true_with_true_with_java_17() {
+		JavaTestingUtils.withJavaSpecificationVersion("17", new Runnable() {
+				@Override
+				public void run() {
+					assertThat(new AtLeastJava8Condition().apply()).isTrue();
+				}
+			}
+		);
 	}
 
 	@Test
-	public void it_should_return_false_with_java_lower_than_8() {
-		Assume.assumeTrue(javaSpecificationVersion.equals("1.7"));
+	public void it_should_return_true_with_true_with_java_11() {
+		JavaTestingUtils.withJavaSpecificationVersion("11", new Runnable() {
+				@Override
+				public void run() {
+					assertThat(new AtLeastJava8Condition().apply()).isTrue();
+				}
+			}
+		);
+	}
 
-		AtLeastJava8Condition condition = new AtLeastJava8Condition();
-		assertThat(condition.apply()).isFalse();
+	@Test
+	public void it_should_return_true_with_true_with_java_9() {
+		JavaTestingUtils.withJavaSpecificationVersion("9", new Runnable() {
+				@Override
+				public void run() {
+					assertThat(new AtLeastJava8Condition().apply()).isTrue();
+				}
+			}
+		);
+	}
+
+	@Test
+	public void it_should_return_true_with_true_with_java_8() {
+		JavaTestingUtils.withJavaSpecificationVersion("1.8", new Runnable() {
+				@Override
+				public void run() {
+					assertThat(new AtLeastJava8Condition().apply()).isTrue();
+				}
+			}
+		);
+	}
+
+	@Test
+	public void it_should_return_false_with_java_7() {
+		JavaTestingUtils.withJavaSpecificationVersion("1.7", new Runnable() {
+				@Override
+				public void run() {
+					assertThat(new AtLeastJava8Condition().apply()).isFalse();
+				}
+			}
+		);
 	}
 }
