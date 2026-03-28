@@ -29,10 +29,10 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if Java version is exactly Java 8.
  */
-public class Java8Condition implements RunIfCondition {
+public class Java8Condition extends AbstractJavaCondition {
 
 	@Override
-	public boolean apply() {
-		return JavaUtils.getJavaSpecificationVersion().getMajor() == 8;
+	int major() {
+		return 8;
 	}
 }

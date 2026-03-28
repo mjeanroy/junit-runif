@@ -26,13 +26,12 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if Java version is exactly Java 9.
- */
-public class Java9Condition extends AbstractJavaCondition {
+abstract class AbstractAtLeastJavaCondition implements RunIfCondition {
 
 	@Override
-	int major() {
-		return 9;
+	public final boolean apply() {
+		return JavaUtils.getJavaSpecificationVersion().getMajor() >= min();
 	}
+
+	abstract int min();
 }

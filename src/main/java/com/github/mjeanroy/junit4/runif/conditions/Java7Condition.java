@@ -29,10 +29,10 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if Java version is exactly Java 7.
  */
-public class Java7Condition implements RunIfCondition {
+public class Java7Condition extends AbstractJavaCondition implements RunIfCondition {
 
 	@Override
-	public boolean apply() {
-		return JavaUtils.getJavaSpecificationVersion().getMajor() == 7;
+	int major() {
+		return 7;
 	}
 }
