@@ -59,11 +59,24 @@ class RunIfUtils {
 			return false;
 		}
 
-		Class<? extends RunIfCondition> conditionClass = runIf.value();
+		Class<? extends RunIfCondition>[] conditionClasses = runIf.value();
+		if (conditionClasses == null || conditionClasses.length == 0) {
+			return false;
+		}
 
+		for (Class<? extends RunIfCondition> conditionClass : conditionClasses) {
+			if (!evaluate(conditionClass)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private static boolean evaluate(Class<? extends RunIfCondition> conditionClass) {
 		try {
 			RunIfCondition condition = conditionClass.newInstance();
-			return !condition.apply();
+			return condition.apply();
 		} catch (IllegalAccessException | InstantiationException ex) {
 			// Fail with a non-checked exception.
 			throw new AssertionError(ex);

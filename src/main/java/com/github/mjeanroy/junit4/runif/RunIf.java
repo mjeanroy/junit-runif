@@ -47,5 +47,5 @@ public @interface RunIf {
 	 *
 	 * @return The condition class.
 	 */
-	Class<? extends RunIfCondition> value();
+	Class<? extends RunIfCondition>[] value();
 }
