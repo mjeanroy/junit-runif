@@ -34,6 +34,13 @@ import java.util.Collection;
  */
 public final class IsX86Condition extends AbstractArchCondition implements RunIfCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public IsX86Condition() {
+		super();
+	}
+
 	@Override
 	Collection<String> archs() {
 		return Arrays.asList(

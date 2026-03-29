@@ -34,6 +34,13 @@ import java.util.Collection;
  */
 public final class IsArmCondition extends AbstractArchCondition implements RunIfCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public IsArmCondition() {
+		super();
+	}
+
 	@Override
 	Collection<String> archs() {
 		return Arrays.asList(

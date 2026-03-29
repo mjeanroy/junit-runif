@@ -31,6 +31,13 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
  */
 public final class IsWindowsCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public IsWindowsCondition() {
+		super();
+	}
+
 	@Override
 	String os() {
 		return "win";

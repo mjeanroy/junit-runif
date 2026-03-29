@@ -31,6 +31,13 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
  */
 public final class AtLeastJava11Condition extends AbstractAtLeastJavaCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public AtLeastJava11Condition() {
+		super();
+	}
+
 	@Override
 	int min() {
 		return 11;

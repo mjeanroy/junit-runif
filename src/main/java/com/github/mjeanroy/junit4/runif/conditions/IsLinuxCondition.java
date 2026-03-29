@@ -31,6 +31,13 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
  */
 public final class IsLinuxCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public IsLinuxCondition() {
+		super();
+	}
+
 	@Override
 	String os() {
 		return "linux";

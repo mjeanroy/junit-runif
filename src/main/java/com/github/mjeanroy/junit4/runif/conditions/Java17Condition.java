@@ -31,6 +31,13 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
  */
 public final class Java17Condition extends AbstractJavaCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public Java17Condition() {
+		super();
+	}
+
 	@Override
 	int major() {
 		return 17;

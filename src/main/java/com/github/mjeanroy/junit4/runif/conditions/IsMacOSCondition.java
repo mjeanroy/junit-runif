@@ -31,6 +31,13 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
  */
 public final class IsMacOSCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
+	/**
+	 * Create condition.
+	 */
+	public IsMacOSCondition() {
+		super();
+	}
+
 	@Override
 	String os() {
 		return "mac";
