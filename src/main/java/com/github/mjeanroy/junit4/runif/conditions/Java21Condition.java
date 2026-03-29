@@ -24,56 +24,22 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-import org.junit.Test;
+import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-import static com.github.mjeanroy.junit4.runif.conditions.JavaTestingUtils.withJavaSpecificationVersion;
-import static org.assertj.core.api.Assertions.assertThat;
+/**
+ * A {@link RunIfCondition} that returns true if Java version is exactly Java 21.
+ */
+public final class Java21Condition extends AbstractJavaCondition {
 
-public class Java8ConditionTest {
-
-	@Test
-	public void it_should_return_true_with_java_8() {
-		withJavaSpecificationVersion("1.8", () ->
-			assertThat(evaluate()).isTrue()
-		);
+	/**
+	 * Create condition.
+	 */
+	public Java21Condition() {
+		super();
 	}
 
-	@Test
-	public void it_should_return_false_without_java_7() {
-		withJavaSpecificationVersion("1.7", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
-	@Test
-	public void it_should_return_false_without_java_9() {
-		withJavaSpecificationVersion("9", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
-	@Test
-	public void it_should_return_false_without_java_11() {
-		withJavaSpecificationVersion("11", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
-	@Test
-	public void it_should_return_false_without_java_17() {
-		withJavaSpecificationVersion("17", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
-	@Test
-	public void it_should_return_false_without_java_21() {
-		withJavaSpecificationVersion("21", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
-	private static boolean evaluate() {
-		return new Java8Condition().apply();
+	@Override
+	int major() {
+		return 21;
 	}
 }

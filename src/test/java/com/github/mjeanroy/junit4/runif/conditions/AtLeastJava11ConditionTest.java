@@ -31,37 +31,48 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AtLeastJava11ConditionTest {
 
 	@Test
+	public void it_should_return_true_with_true_with_java_21() {
+		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
+			assertThat(evaluate()).isTrue()
+		);
+	}
+
+	@Test
 	public void it_should_return_true_with_true_with_java_17() {
 		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
-			assertThat(new AtLeastJava11Condition().apply()).isTrue()
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_true_with_java_11() {
 		JavaTestingUtils.withJavaSpecificationVersion("11", () ->
-			assertThat(new AtLeastJava11Condition().apply()).isTrue()
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_true_with_java_9() {
 		JavaTestingUtils.withJavaSpecificationVersion("9", () ->
-			assertThat(new AtLeastJava11Condition().apply()).isFalse()
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_false_with_java_8() {
 		JavaTestingUtils.withJavaSpecificationVersion("1.8", () ->
-			assertThat(new AtLeastJava11Condition().apply()).isFalse()
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_java_7() {
 		JavaTestingUtils.withJavaSpecificationVersion("1.7", () ->
-			assertThat(new AtLeastJava11Condition().apply()).isFalse()
+			assertThat(evaluate()).isFalse()
 		);
+	}
+
+	private boolean evaluate() {
+		return new AtLeastJava11Condition().apply();
 	}
 }

@@ -26,54 +26,53 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import org.junit.Test;
 
-import static com.github.mjeanroy.junit4.runif.conditions.JavaTestingUtils.withJavaSpecificationVersion;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Java8ConditionTest {
+public class AtLeastJava21ConditionTest {
 
 	@Test
-	public void it_should_return_true_with_java_8() {
-		withJavaSpecificationVersion("1.8", () ->
+	public void it_should_return_true_with_true_with_java_21() {
+		JavaTestingUtils.withJavaSpecificationVersion("21", () ->
 			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_7() {
-		withJavaSpecificationVersion("1.7", () ->
+	public void it_should_return_true_with_false_with_java_17() {
+		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_9() {
-		withJavaSpecificationVersion("9", () ->
+	public void it_should_return_true_with_false_with_java_11() {
+		JavaTestingUtils.withJavaSpecificationVersion("11", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_11() {
-		withJavaSpecificationVersion("11", () ->
+	public void it_should_return_false_with_true_with_java_9() {
+		JavaTestingUtils.withJavaSpecificationVersion("9", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_17() {
-		withJavaSpecificationVersion("17", () ->
+	public void it_should_return_false_with_false_with_java_8() {
+		JavaTestingUtils.withJavaSpecificationVersion("1.8", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_21() {
-		withJavaSpecificationVersion("21", () ->
+	public void it_should_return_false_with_java_7() {
+		JavaTestingUtils.withJavaSpecificationVersion("1.7", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
-	private static boolean evaluate() {
-		return new Java8Condition().apply();
+	private boolean evaluate() {
+		return new AtLeastJava21Condition().apply();
 	}
 }

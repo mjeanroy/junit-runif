@@ -29,11 +29,12 @@ import org.junit.Test;
 import static com.github.mjeanroy.junit4.runif.conditions.JavaTestingUtils.withJavaSpecificationVersion;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Java8ConditionTest {
+public class Java21ConditionTest {
+
 
 	@Test
-	public void it_should_return_true_with_java_8() {
-		withJavaSpecificationVersion("1.8", () ->
+	public void it_should_return_true_without_java_21() {
+		withJavaSpecificationVersion("21", () ->
 			assertThat(evaluate()).isTrue()
 		);
 	}
@@ -46,6 +47,13 @@ public class Java8ConditionTest {
 	}
 
 	@Test
+	public void it_should_return_false_without_java_8() {
+		withJavaSpecificationVersion("1.8", () ->
+			assertThat(evaluate()).isFalse()
+		);
+	}
+
+	@Test
 	public void it_should_return_false_without_java_9() {
 		withJavaSpecificationVersion("9", () ->
 			assertThat(evaluate()).isFalse()
@@ -53,27 +61,20 @@ public class Java8ConditionTest {
 	}
 
 	@Test
-	public void it_should_return_false_without_java_11() {
+	public void it_should_return_false_with_java_11() {
 		withJavaSpecificationVersion("11", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_false_without_java_17() {
+	public void it_should_return_false_with_java_17() {
 		withJavaSpecificationVersion("17", () ->
 			assertThat(evaluate()).isFalse()
 		);
 	}
 
-	@Test
-	public void it_should_return_false_without_java_21() {
-		withJavaSpecificationVersion("21", () ->
-			assertThat(evaluate()).isFalse()
-		);
-	}
-
 	private static boolean evaluate() {
-		return new Java8Condition().apply();
+		return new Java21Condition().apply();
 	}
 }
