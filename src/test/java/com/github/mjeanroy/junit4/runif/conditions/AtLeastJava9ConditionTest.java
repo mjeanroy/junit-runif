@@ -31,6 +31,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AtLeastJava9ConditionTest {
 
 	@Test
+	public void it_should_return_true_with_true_with_java_25() {
+		JavaTestingUtils.withJavaSpecificationVersion("25", () ->
+			assertThat(evaluate()).isTrue()
+		);
+	}
+
+	@Test
 	public void it_should_return_true_with_true_with_java_21() {
 		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
 			assertThat(evaluate()).isTrue()

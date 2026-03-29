@@ -73,6 +73,13 @@ public class Java9ConditionTest {
 		);
 	}
 
+	@Test
+	public void it_should_return_false_with_java_25() {
+		withJavaSpecificationVersion("25", () ->
+			assertThat(evaluate()).isFalse()
+		);
+	}
+
 	private static boolean evaluate() {
 		return new Java9Condition().apply();
 	}

@@ -28,7 +28,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AtLeastJava11ConditionTest {
+public class AtLeastJava25ConditionTest {
 
 	@Test
 	public void it_should_return_true_with_true_with_java_25() {
@@ -38,23 +38,23 @@ public class AtLeastJava11ConditionTest {
 	}
 
 	@Test
-	public void it_should_return_true_with_true_with_java_21() {
-		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
-			assertThat(evaluate()).isTrue()
+	public void it_should_return_true_with_false_with_java_21() {
+		JavaTestingUtils.withJavaSpecificationVersion("21", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_true_with_true_with_java_17() {
+	public void it_should_return_true_with_false_with_java_17() {
 		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
-			assertThat(evaluate()).isTrue()
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
-	public void it_should_return_true_with_true_with_java_11() {
+	public void it_should_return_true_with_false_with_java_11() {
 		JavaTestingUtils.withJavaSpecificationVersion("11", () ->
-			assertThat(evaluate()).isTrue()
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
@@ -80,6 +80,6 @@ public class AtLeastJava11ConditionTest {
 	}
 
 	private boolean evaluate() {
-		return new AtLeastJava11Condition().apply();
+		return new AtLeastJava25Condition().apply();
 	}
 }
