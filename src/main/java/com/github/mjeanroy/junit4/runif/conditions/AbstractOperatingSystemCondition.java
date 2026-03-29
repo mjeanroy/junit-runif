@@ -24,25 +24,22 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-class JavaTestingUtils {
+import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-	static void withJavaSpecificationVersion(String javaSpecificationVersion, Runnable runnable) {
-		String prop = System.getProperty("java.specification.version");
-		System.setProperty("java.specification.version", javaSpecificationVersion);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("java.specification.version", prop);
+abstract class AbstractOperatingSystemCondition implements RunIfCondition {
+
+	@Override
+	public final boolean apply() {
+		String currentOsName = JavaUtils.getOsName();
+
+		if (currentOsName == null) {
+			// This should not be possible, except if os.name system
+			// property is overridden
+			throw new IllegalStateException("Unable to evaluate current operating system");
 		}
+
+		return currentOsName.toLowerCase().contains(os().toLowerCase());
 	}
 
-	static void withOsName(String osName, Runnable runnable) {
-		String prop = System.getProperty("os.name");
-		System.setProperty("os.name", osName);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.name", prop);
-		}
-	}
+	abstract String os();
 }

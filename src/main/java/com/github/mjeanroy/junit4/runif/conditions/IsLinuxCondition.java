@@ -24,25 +24,15 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-class JavaTestingUtils {
+import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-	static void withJavaSpecificationVersion(String javaSpecificationVersion, Runnable runnable) {
-		String prop = System.getProperty("java.specification.version");
-		System.setProperty("java.specification.version", javaSpecificationVersion);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("java.specification.version", prop);
-		}
-	}
+/**
+ * A {@link RunIfCondition} that returns true if OS is Windows.
+ */
+public class IsLinuxCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
-	static void withOsName(String osName, Runnable runnable) {
-		String prop = System.getProperty("os.name");
-		System.setProperty("os.name", osName);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.name", prop);
-		}
+	@Override
+	String os() {
+		return "linux";
 	}
 }

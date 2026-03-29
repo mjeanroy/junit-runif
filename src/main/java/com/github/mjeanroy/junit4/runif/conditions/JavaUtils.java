@@ -49,6 +49,15 @@ final class JavaUtils {
 	}
 
 	/**
+	 * Get the current OS name.
+	 *
+	 * @return The OS name, as a {@link String}.
+	 */
+	static String getOsName() {
+		return getSystemProperty("os.name");
+	}
+
+	/**
 	 * Parse Java version number.
 	 *
 	 * @param version The version number.
