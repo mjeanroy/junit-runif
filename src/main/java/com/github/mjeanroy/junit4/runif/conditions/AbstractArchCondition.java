@@ -24,35 +24,34 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-class JavaTestingUtils {
+import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-	static void withJavaSpecificationVersion(String javaSpecificationVersion, Runnable runnable) {
-		String prop = System.getProperty("java.specification.version");
-		System.setProperty("java.specification.version", javaSpecificationVersion);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("java.specification.version", prop);
-		}
+import java.util.Collection;
+
+abstract class AbstractArchCondition implements RunIfCondition {
+
+	AbstractArchCondition() {
 	}
 
-	static void withOsName(String osName, Runnable runnable) {
-		String prop = System.getProperty("os.name");
-		System.setProperty("os.name", osName);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.name", prop);
+	@Override
+	public final boolean apply() {
+		String currentOsArch = JavaUtils.getOsAch();
+
+		if (currentOsArch == null) {
+			// This should not be possible, except if os.name system
+			// property is overridden
+			throw new IllegalStateException("Unable to evaluate current os architecture");
 		}
+
+		String lowerCurrentOsArch = currentOsArch.toLowerCase();
+		for (String arch : archs()) {
+			if (lowerCurrentOsArch.contains(arch.toLowerCase())) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
-	static void withOsArch(String osArch, Runnable runnable) {
-		String prop = System.getProperty("os.arch");
-		System.setProperty("os.arch", osArch);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.arch", prop);
-		}
-	}
+	abstract Collection<String> archs();
 }

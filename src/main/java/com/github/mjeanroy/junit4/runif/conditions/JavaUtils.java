@@ -58,6 +58,15 @@ final class JavaUtils {
 	}
 
 	/**
+	 * Get the current OS arch.
+	 *
+	 * @return The OS arch, as a {@link String}.
+	 */
+	static String getOsAch() {
+		return getSystemProperty("os.arch");
+	}
+
+	/**
 	 * Parse Java version number.
 	 *
 	 * @param version The version number.

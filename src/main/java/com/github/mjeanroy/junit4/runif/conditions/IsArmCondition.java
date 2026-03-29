@@ -24,35 +24,21 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-class JavaTestingUtils {
+import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-	static void withJavaSpecificationVersion(String javaSpecificationVersion, Runnable runnable) {
-		String prop = System.getProperty("java.specification.version");
-		System.setProperty("java.specification.version", javaSpecificationVersion);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("java.specification.version", prop);
-		}
-	}
+import java.util.Arrays;
+import java.util.Collection;
 
-	static void withOsName(String osName, Runnable runnable) {
-		String prop = System.getProperty("os.name");
-		System.setProperty("os.name", osName);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.name", prop);
-		}
-	}
+/**
+ * A {@link RunIfCondition} that returns true if OS Architecture is ARM (32 or 64).
+ */
+public final class IsArmCondition extends AbstractArchCondition implements RunIfCondition {
 
-	static void withOsArch(String osArch, Runnable runnable) {
-		String prop = System.getProperty("os.arch");
-		System.setProperty("os.arch", osArch);
-		try {
-			runnable.run();
-		} finally {
-			System.setProperty("os.arch", prop);
-		}
+	@Override
+	Collection<String> archs() {
+		return Arrays.asList(
+			"aarch",
+			"arm"
+		);
 	}
 }
