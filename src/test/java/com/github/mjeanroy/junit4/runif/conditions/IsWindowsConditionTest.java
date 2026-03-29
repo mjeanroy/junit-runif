@@ -33,111 +33,69 @@ public class IsWindowsConditionTest {
 
 	@Test
 	public void it_should_return_true_with_windows_11() {
-		withOsName("Windows 11", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows 11", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_10() {
-		withOsName("Windows 10", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows 10", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_8_1() {
-		withOsName("Windows 8.1", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows 8.1", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_8() {
-		withOsName("Windows 8", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows 8", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_7() {
-		withOsName("Windows 7", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows 7", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_server_2022() {
-		withOsName("Windows Server 2022", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows Server 2022", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_windows_server_2019() {
-		withOsName("Windows Server 2019", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsName("Windows Server 2019", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_macos() {
-		withOsName("macOS", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsName("macOS", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_macosx() {
-		withOsName("Mac OS X", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsName("Mac OS X", () -> assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_linux() {
-		withOsName("Linux", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsName("Linux", () -> assertThat(evaluate()).isFalse()
 		);
 	}
 

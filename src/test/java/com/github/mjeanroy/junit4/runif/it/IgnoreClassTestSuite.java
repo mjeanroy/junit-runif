@@ -31,6 +31,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 
 @RunWith(RunIfRunner.class)
 @RunIf(AlwaysFalseCondition.class)
@@ -40,6 +41,6 @@ public class IgnoreClassTestSuite {
 	public void it_should_fail() {
 		// If the RunIf statement does not work correctly, then this unit test
 		// will fail!
-		assertFalse(true);
+		fail();
 	}
 }

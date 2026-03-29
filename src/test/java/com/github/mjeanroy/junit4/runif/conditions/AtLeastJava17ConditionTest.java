@@ -32,56 +32,36 @@ public class AtLeastJava17ConditionTest {
 
 	@Test
 	public void it_should_return_true_with_true_with_java_17() {
-		JavaTestingUtils.withJavaSpecificationVersion("17", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new AtLeastJava17Condition().apply()).isTrue();
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion("17", () ->
+			assertThat(new AtLeastJava17Condition().apply()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_false_with_java_11() {
-		JavaTestingUtils.withJavaSpecificationVersion("11", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new AtLeastJava17Condition().apply()).isFalse();
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion("11", () ->
+			assertThat(new AtLeastJava17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_true_with_java_9() {
-		JavaTestingUtils.withJavaSpecificationVersion("9", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new AtLeastJava17Condition().apply()).isFalse();
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion("9", () ->
+			assertThat(new AtLeastJava17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_false_with_java_8() {
-		JavaTestingUtils.withJavaSpecificationVersion("1.8", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new AtLeastJava17Condition().apply()).isFalse();
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion("1.8", () ->
+			assertThat(new AtLeastJava17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_java_7() {
-		JavaTestingUtils.withJavaSpecificationVersion("1.7", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new AtLeastJava17Condition().apply()).isFalse();
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion("1.7", () ->
+			assertThat(new AtLeastJava17Condition().apply()).isFalse()
 		);
 	}
 }

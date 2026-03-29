@@ -34,56 +34,36 @@ public class Java17ConditionTest {
 
 	@Test
 	public void it_should_return_true_without_java_17() {
-		withJavaSpecificationVersion("17", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new Java17Condition().apply()).isTrue();
-				}
-			}
+		withJavaSpecificationVersion("17", () ->
+			assertThat(new Java17Condition().apply()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_without_java_7() {
-		withJavaSpecificationVersion("1.7", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new Java17Condition().apply()).isFalse();
-				}
-			}
+		withJavaSpecificationVersion("1.7", () ->
+			assertThat(new Java17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_without_java_8() {
-		withJavaSpecificationVersion("1.8", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new Java17Condition().apply()).isFalse();
-				}
-			}
+		withJavaSpecificationVersion("1.8", () ->
+			assertThat(new Java17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_without_java_9() {
-		withJavaSpecificationVersion("9", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new Java17Condition().apply()).isFalse();
-				}
-			}
+		withJavaSpecificationVersion("9", () ->
+			assertThat(new Java17Condition().apply()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_java_11() {
-		withJavaSpecificationVersion("11", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(new Java17Condition().apply()).isFalse();
-				}
-			}
+		withJavaSpecificationVersion("11", () ->
+			assertThat(new Java17Condition().apply()).isFalse()
 		);
 	}
 }

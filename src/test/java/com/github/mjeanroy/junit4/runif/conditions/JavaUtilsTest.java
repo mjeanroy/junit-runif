@@ -40,14 +40,10 @@ public class JavaUtilsTest {
 	}
 
 	private static void testJavaVersion(final String javaSpecificationVersion, final int expectedMajor) {
-		JavaTestingUtils.withJavaSpecificationVersion(javaSpecificationVersion, new Runnable() {
-				@Override
-				public void run() {
-					assertThat(JavaUtils.getJavaSpecificationVersion().getMajor())
-						.overridingErrorMessage("Expected java specification version major %s for %s", expectedMajor, javaSpecificationVersion)
-						.isEqualTo(expectedMajor);
-				}
-			}
+		JavaTestingUtils.withJavaSpecificationVersion(javaSpecificationVersion, () ->
+			assertThat(JavaUtils.getJavaSpecificationVersion().getMajor())
+				.overridingErrorMessage("Expected java specification version major %s for %s", expectedMajor, javaSpecificationVersion)
+				.isEqualTo(expectedMajor)
 		);
 	}
 }

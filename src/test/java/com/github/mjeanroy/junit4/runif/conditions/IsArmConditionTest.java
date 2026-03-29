@@ -33,122 +33,78 @@ public class IsArmConditionTest {
 
 	@Test
 	public void it_should_return_true_with_aarch64() {
-		withOsArch("aarch64", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsArch("aarch64", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_arm64() {
-		withOsArch("arm64", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsArch("arm64", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_arm() {
-		withOsArch("arm", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsArch("arm", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_true_with_arm32() {
-		withOsArch("arm32", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isTrue();
-				}
-			}
+		withOsArch("arm32", () ->
+			assertThat(evaluate()).isTrue()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_x86() {
-		withOsArch("x86", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("x86", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_x86_64() {
-		withOsArch("x86_64", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("x86_64", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_amd64() {
-		withOsArch("amd64", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("amd64", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_i386() {
-		withOsArch("i386", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("i386", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_i486() {
-		withOsArch("i486", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("i486", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_i586() {
-		withOsArch("i586", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("i586", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
 	@Test
 	public void it_should_return_false_with_i686() {
-		withOsArch("i686", new Runnable() {
-				@Override
-				public void run() {
-					assertThat(evaluate()).isFalse();
-				}
-			}
+		withOsArch("i686", () ->
+			assertThat(evaluate()).isFalse()
 		);
 	}
 
