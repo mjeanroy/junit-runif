@@ -60,15 +60,10 @@ THE SOFTWARE.
   </developers>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
     <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <id>central</id>
+      <name>Sonatype Release Repository</name>
+      <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2</url>
     </repository>
   </distributionManagement>
 
@@ -89,6 +84,8 @@ THE SOFTWARE.
     <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
     <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
+
+    <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
 
     <junit.version>4.13.2</junit.version>
     <assertj.version>3.27.7</assertj.version>
@@ -191,6 +188,9 @@ THE SOFTWARE.
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>${maven-deploy-plugin.version}</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -229,6 +229,24 @@ THE SOFTWARE.
           <useReleaseProfile>false</useReleaseProfile>
           <arguments>-Prelease</arguments>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>${central-publishing-maven-plugin.version}</version>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>publish-to-maven-central</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>publish</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
