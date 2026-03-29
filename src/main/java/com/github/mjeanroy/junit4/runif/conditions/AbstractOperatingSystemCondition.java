@@ -28,6 +28,9 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
 abstract class AbstractOperatingSystemCondition implements RunIfCondition {
 
+	AbstractOperatingSystemCondition() {
+	}
+
 	@Override
 	public final boolean apply() {
 		String currentOsName = JavaUtils.getOsName();

@@ -29,7 +29,7 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if Java version is at least Java 11.
  */
-public class AtLeastJava11Condition extends AbstractAtLeastJavaCondition {
+public final class AtLeastJava11Condition extends AbstractAtLeastJavaCondition {
 
 	@Override
 	int min() {

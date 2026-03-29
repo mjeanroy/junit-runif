@@ -29,7 +29,7 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if Java version is exactly Java 17.
  */
-public class Java17Condition extends AbstractJavaCondition {
+public final class Java17Condition extends AbstractJavaCondition {
 
 	@Override
 	int major() {

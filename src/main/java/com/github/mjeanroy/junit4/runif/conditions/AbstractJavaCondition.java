@@ -28,6 +28,9 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
 abstract class AbstractJavaCondition implements RunIfCondition {
 
+	AbstractJavaCondition() {
+	}
+
 	@Override
 	public final boolean apply() {
 		return JavaUtils.getJavaSpecificationVersion().getMajor() == major();

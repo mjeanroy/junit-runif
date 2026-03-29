@@ -29,7 +29,7 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if OS is Windows.
  */
-public class IsWindowsCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
+public final class IsWindowsCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
 	@Override
 	String os() {

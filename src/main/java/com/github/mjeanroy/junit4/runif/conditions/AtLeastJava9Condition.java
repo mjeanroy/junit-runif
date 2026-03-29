@@ -29,7 +29,7 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 /**
  * A {@link RunIfCondition} that returns true if Java version is at least Java 9.
  */
-public class AtLeastJava9Condition extends AbstractAtLeastJavaCondition {
+public final class AtLeastJava9Condition extends AbstractAtLeastJavaCondition {
 
 	@Override
 	int min() {
