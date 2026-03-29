@@ -30,26 +30,18 @@ import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.model.InitializationError;
 
-/**
- * Runner that can be used to ignore a test (or a test class) with a given condition
- * using {@link RunIf} annotation.
- *
- * <br>
- *
- * This is a more readable version of {@link org.junit.Assume} API.
- */
+/// Runner that can be used to ignore a test (or a test class) with a given condition
+/// using [RunIf] annotation.
+///
+/// This is a more readable version of [org.junit.Assume] API.
 public class RunIfRunner extends Runner {
-	/**
-	 * The delegated runner: internal operation will be delegated to this runner.
-	 */
+	/// The delegated runner: internal operation will be delegated to this runner.
 	private final Runner delegate;
 
-	/**
-	 * Create the runner.
-	 *
-	 * @param klass The test class.
-	 * @throws InitializationError If the test class is malformed.
-	 */
+	/// Create the runner.
+	///
+	/// @param klass The test class.
+	/// @throws InitializationError If the test class is malformed.
 	public RunIfRunner(Class<?> klass) throws InitializationError {
 		boolean ignoreClass = RunIfUtils.isIgnored(klass);
 

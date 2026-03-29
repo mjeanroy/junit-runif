@@ -30,22 +30,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * Annotation that can be used with {@link RunIfRunner} to skip a test (or the entire
- * test class) using the result of a given condition ({@link RunIfCondition}):
- * <ul>
- *   <li>If the condition returns {@code true}, the test will be executed.</li>
- *   <li>Otherwise, the test will be skipped.</li>
- * </ul>
- */
+/// Annotation that can be used with [RunIfRunner] to skip a test (or the entire
+/// test class) using the result of a given condition ([RunIfCondition]):
+///  - If the condition returns `true`, the test will be executed.
+///  - Otherwise, the test will be skipped.
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Documented
 public @interface RunIf {
-	/**
-	 * The condition class that will be instantiated and evaluated before running test.
-	 *
-	 * @return The condition class.
-	 */
+	/// The condition class that will be instantiated and evaluated before running test.
+	///
+	/// @return The condition class.
 	Class<? extends RunIfCondition>[] value();
 }

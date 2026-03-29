@@ -24,19 +24,13 @@
 
 package com.github.mjeanroy.junit4.runif;
 
-/**
- * Condition that will be instantiated and evaluated to ensure that a test
- * can be executed.
- */
+/// Condition that will be instantiated and evaluated to ensure that a test
+/// can be executed.
 public interface RunIfCondition {
-	/**
-	 * The condition implementation:
-	 * <ul>
-	 *   <li>Must returns {@code true} to execute test.</li>
-	 *   <li>Must returns {@code false} otherwise.</li>
-	 * </ul>
-	 *
-	 * @return {@code true} to execute test, {@code false} to ignore it.
-	 */
+	/// The condition implementation:
+	///  - Must returns `true` to execute test.
+	///  - Must returns `false` otherwise.
+	///
+	/// @return `true` to execute test, `false` to ignore it.
 	boolean apply();
 }

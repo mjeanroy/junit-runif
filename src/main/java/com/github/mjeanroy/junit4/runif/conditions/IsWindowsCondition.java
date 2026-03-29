@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if OS is Windows.
- */
+/// A [RunIfCondition] that returns true if OS is Windows.
 public final class IsWindowsCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public IsWindowsCondition() {
 		super();
 	}

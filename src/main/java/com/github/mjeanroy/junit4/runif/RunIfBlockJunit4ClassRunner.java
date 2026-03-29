@@ -28,16 +28,12 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 
-/**
- * The internal runner that will be used if the entire test is not ignored.
- */
+/// The internal runner that will be used if the entire test is not ignored.
 class RunIfBlockJunit4ClassRunner extends BlockJUnit4ClassRunner {
-	/**
-	 * Create runner.
-	 *
-	 * @param klass The test class.
-	 * @throws InitializationError If an error occurred while initializing test class.
-	 */
+	/// Create runner.
+	///
+	/// @param klass The test class.
+	/// @throws InitializationError If an error occurred while initializing test class.
 	RunIfBlockJunit4ClassRunner(Class<?> klass) throws InitializationError {
 		super(klass);
 	}

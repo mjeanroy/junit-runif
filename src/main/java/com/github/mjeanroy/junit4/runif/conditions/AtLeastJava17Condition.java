@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if Java version is at least Java 17.
- */
+/// A [RunIfCondition] that returns true if Java version is at least Java 17.
 public final class AtLeastJava17Condition extends AbstractAtLeastJavaCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public AtLeastJava17Condition() {
 		super();
 	}

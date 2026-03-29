@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if Java version is at least Java 21.
- */
+/// A [RunIfCondition] that returns true if Java version is at least Java 21.
 public final class AtLeastJava21Condition extends AbstractAtLeastJavaCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public AtLeastJava21Condition() {
 		super();
 	}

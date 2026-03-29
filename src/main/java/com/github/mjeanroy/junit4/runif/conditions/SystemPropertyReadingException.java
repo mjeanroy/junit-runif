@@ -24,42 +24,32 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-/**
- * Exception thrown when a system property cannot be read because of
- * external error (such as {@link SecurityException}).
- */
+/// Exception thrown when a system property cannot be read because of
+/// external error (such as [SecurityException]).
 public class SystemPropertyReadingException extends RuntimeException {
-	/**
-	 * The property that cannot be read.
-	 */
+	/// The property that cannot be read.
 	private final String property;
 
-	/**
-	 * Create the exception.
-	 *
-	 * @param cause The original exception.
-	 * @param property The property that cannot be read.
-	 */
+	/// Create the exception.
+	///
+	/// @param cause The original exception.
+	/// @param property The property that cannot be read.
 	SystemPropertyReadingException(Exception cause, String property) {
 		super(createMessage(property), cause);
 		this.property = property;
 	}
 
-	/**
-	 * Get the property that is impossible to read.
-	 *
-	 * @return The property.
-	 */
+	/// Get the property that is impossible to read.
+	///
+	/// @return The property.
 	public String getProperty() {
 		return property;
 	}
 
-	/**
-	 * Create the exception error message.
-	 *
-	 * @param property Property that is impossible to read.
-	 * @return The error message.
-	 */
+	/// Create the exception error message.
+	///
+	/// @param property Property that is impossible to read.
+	/// @return The error message.
 	private static String createMessage(String property) {
 		return "Error while reading the system property '" + property + "'";
 	}

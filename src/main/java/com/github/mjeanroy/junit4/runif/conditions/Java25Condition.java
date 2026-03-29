@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if Java version is exactly Java 25.
- */
+/// A [RunIfCondition] that returns true if Java version is exactly Java 25.
 public final class Java25Condition extends AbstractJavaCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public Java25Condition() {
 		super();
 	}

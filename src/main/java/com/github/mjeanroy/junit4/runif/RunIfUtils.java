@@ -26,30 +26,24 @@ package com.github.mjeanroy.junit4.runif;
 
 import java.lang.reflect.Method;
 
-/**
- * Static utilities for {@link RunIf} annotation.
- */
+/// Static utilities for [RunIf] annotation.
 class RunIfUtils {
 	// Ensure non instantiation.
 	private RunIfUtils() {
 	}
 
-	/**
-	 * Check if class should be ignored according to {@link RunIf} condition.
-	 *
-	 * @param klass The class to check.
-	 * @return {@code true} if class must be ignored, {@code false} otherwise.
-	 */
+	/// Check if class should be ignored according to [RunIf] condition.
+	///
+	/// @param klass The class to check.
+	/// @return `true` if class must be ignored, `false` otherwise.
 	static boolean isIgnored(Class<?> klass) {
 		return isIgnored(findRunIfAnnotation(klass));
 	}
 
-	/**
-	 * Check if method should be ignored according to {@link RunIf} condition.
-	 *
-	 * @param method The method to check.
-	 * @return {@code true} if class must be ignored, {@code false} otherwise.
-	 */
+	/// Check if method should be ignored according to [RunIf] condition.
+	///
+	/// @param method The method to check.
+	/// @return `true` if class must be ignored, `false` otherwise.
 	static boolean isIgnored(Method method) {
 		return isIgnored(method.getAnnotation(RunIf.class));
 	}
@@ -83,12 +77,10 @@ class RunIfUtils {
 		}
 	}
 
-	/**
-	 * Find the {@link RunIf} annotation on the class or on a superclass in the hierarchy.
-	 *
-	 * @param klass The class to analyze.
-	 * @return The {@link RunIf} annotation if found, {@code null} otherwise.
-	 */
+	/// Find the [RunIf] annotation on the class or on a superclass in the hierarchy.
+	///
+	/// @param klass The class to analyze.
+	/// @return The [RunIf] annotation if found, `null` otherwise.
 	private static RunIf findRunIfAnnotation(Class<?> klass) {
 		while (klass != null && klass != Object.class) {
 			RunIf annotation = klass.getAnnotation(RunIf.class);

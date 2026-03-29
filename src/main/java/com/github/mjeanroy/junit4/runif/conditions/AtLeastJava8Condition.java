@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if Java version is at least Java 8.
- */
+/// A [RunIfCondition] that returns true if Java version is at least Java 8.
 public final class AtLeastJava8Condition extends AbstractAtLeastJavaCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public AtLeastJava8Condition() {
 		super();
 	}

@@ -29,14 +29,10 @@ import com.github.mjeanroy.junit4.runif.RunIfCondition;
 import java.util.Arrays;
 import java.util.Collection;
 
-/**
- * A {@link RunIfCondition} that returns true if OS Architecture is X86 (32 or 64).
- */
+/// A [RunIfCondition] that returns true if OS Architecture is X86 (32 or 64).
 public final class IsX86Condition extends AbstractArchCondition implements RunIfCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public IsX86Condition() {
 		super();
 	}

@@ -24,54 +24,39 @@
 
 package com.github.mjeanroy.junit4.runif.conditions;
 
-/**
- * Static Java Utilities.
- */
+/// Static Java Utilities.
 final class JavaUtils {
-
-	/**
-	 * The system property name for the java specification version.
-	 */
-	private static final String JAVA_SPECIFICATION_VERSION_PROP = "java.specification.version";
 
 	// Ensure non instantiation.
 	private JavaUtils() {
 	}
 
-	/**
-	 * Get the Java Specification Version.
-	 *
-	 * @return The java specification version, as a {@link String}.
-	 */
+	/// Get the Java Specification Version.
+	///
+	/// @return The java specification version, as a [String].
 	static Version getJavaSpecificationVersion() {
 		String version = getSystemProperty("java.specification.version");
 		return parseVersion(version);
 	}
 
-	/**
-	 * Get the current OS name.
-	 *
-	 * @return The OS name, as a {@link String}.
-	 */
+	/// Get the current OS name.
+	///
+	/// @return The OS name, as a [String].
 	static String getOsName() {
 		return getSystemProperty("os.name");
 	}
 
-	/**
-	 * Get the current OS arch.
-	 *
-	 * @return The OS arch, as a {@link String}.
-	 */
+	/// Get the current OS arch.
+	///
+	/// @return The OS arch, as a [String].
 	static String getOsAch() {
 		return getSystemProperty("os.arch");
 	}
 
-	/**
-	 * Parse Java version number.
-	 *
-	 * @param version The version number.
-	 * @return The version.
-	 */
+	/// Parse Java version number.
+	///
+	/// @param version The version number.
+	/// @return The version.
 	private static Version parseVersion(String version) {
 		String[] parts = version.split("\\.");
 		int nbParts = parts.length;
@@ -80,14 +65,12 @@ final class JavaUtils {
 		return new Version(major);
 	}
 
-	/**
-	 * Gets a System property, and throw {@link SystemPropertyReadingException} if system property cannot
-	 * be read.
-	 *
-	 * @param property the system property name
-	 * @return the system property value.
-	 * @throws SystemPropertyReadingException If the property cannot be read.
-	 */
+	/// Gets a System property, and throw [SystemPropertyReadingException] if system property cannot
+	/// be read.
+	///
+	/// @param property the system property name
+	/// @return the system property value.
+	/// @throws SystemPropertyReadingException If the property cannot be read.
 	private static String getSystemProperty(String property) {
 		try {
 			return System.getProperty(property);

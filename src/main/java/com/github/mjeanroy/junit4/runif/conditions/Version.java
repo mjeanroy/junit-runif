@@ -26,30 +26,22 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import java.util.Objects;
 
-/**
- * A simple class to define a version number.
- */
+/// A simple class to define a version number.
 final class Version {
 
-	/**
-	 * The major part of the version number.
-	 */
+	/// The major part of the version number.
 	private final int major;
 
-	/**
-	 * Create the version.
-	 *
-	 * @param major The major part of the version.
-	 */
+	/// Create the version.
+	///
+	/// @param major The major part of the version.
 	Version(int major) {
 		this.major = major;
 	}
 
-	/**
-	 * Get {@link #major}
-	 *
-	 * @return {@link #major}
-	 */
+	/// Get [#major]
+	///
+	/// @return Returns [#major]
 	int getMajor() {
 		return major;
 	}

@@ -26,23 +26,19 @@ package com.github.mjeanroy.junit4.runif.tests;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 
-/**
- * Static Reflection Utilities (used in unit test only).
- */
+/// Static Reflection Utilities (used in unit test only).
 public final class ReflectionTestUtils {
 
 	// Ensure non instantiation.
 	private ReflectionTestUtils() {
 	}
 
-	/**
-	 * Read private field on given target instance.
-	 *
-	 * @param target The target instance.
-	 * @param fieldName The field name to read.
-	 * @param <T> Type of value stored in field name.
-	 * @return The field value.
-	 */
+	/// Read private field on given target instance.
+	///
+	/// @param target The target instance.
+	/// @param fieldName The field name to read.
+	/// @param <T> Type of value stored in field name.
+	/// @return The field value.
 	@SuppressWarnings("unchecked")
 	public static <T> T readField(Object target, String fieldName) {
 		try {

@@ -26,14 +26,10 @@ package com.github.mjeanroy.junit4.runif.conditions;
 
 import com.github.mjeanroy.junit4.runif.RunIfCondition;
 
-/**
- * A {@link RunIfCondition} that returns true if OS is MacOS.
- */
+/// A [RunIfCondition] that returns true if OS is MacOS.
 public final class IsMacOSCondition extends AbstractOperatingSystemCondition implements RunIfCondition {
 
-	/**
-	 * Create condition.
-	 */
+	/// Create condition.
 	public IsMacOSCondition() {
 		super();
 	}
