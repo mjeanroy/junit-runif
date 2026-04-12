@@ -51,9 +51,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: webfactory/ssh-agent@a6f90b1f127823b31d4d4a8d96047790581349bd # v0.9.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec # v6.3.0
         with:
@@ -79,7 +76,7 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
 
           # Environment variable name for the GPG private key passphrase.
-          gpg-passphrase: GPG_PASSPHRASE
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Configure Git User
         run: |
           git config user.email "mickael.jeanroy@gmail.com"
@@ -90,11 +87,13 @@ jobs:
           ./mvnw -B --color always -U \
             release:prepare \
             release:perform \
-            -DdryRun=${{ inputs.dry_run }} \
-            -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} \
-            -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
-            -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}-SNAPSHOT \
+            "-DdryRun=${DRY_RUN}" \
+            "-DreleaseVersion=${RELEASE_VERSION}" \
+            "-DdevelopmentVersion=${DEVELOPMENT_VERSION}-SNAPSHOT" \
         env:
+          DRY_RUN: ${{ inputs.dry_run }}
+          RELEASE_VERSION: ${{ github.event.inputs.releaseVersion }}
+          DEVELOPMENT_VERSION: ${{ github.event.inputs.developmentVersion }}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
